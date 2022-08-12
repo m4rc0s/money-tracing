@@ -1,0 +1,8 @@
+server:
+  port: 9007
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:example@127.0.0.1:27017/cashflow?authSource=admin
+      database: cashflow
