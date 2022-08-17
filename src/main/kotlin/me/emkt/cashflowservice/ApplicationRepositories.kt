@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface BankAccountRepository : MongoRepository<BankAccount, UUID> {}
+interface AccountRepository : MongoRepository<Account, UUID> {}
 
 @Repository
-interface BucketRepository: MongoRepository<Bucket, UUID> {}
+interface AssetRepository: MongoRepository<Asset, UUID> {}
+
+@Repository
+interface EntryRepository: MongoRepository<Entry, UUID> {}
