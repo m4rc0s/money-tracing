@@ -1,4 +1,4 @@
-package me.emkt.cashflowservice
+package org.cyclic.cashflowservice
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -29,7 +29,7 @@ class ApplicationController {
         val account = Account(
             name = createAccountRequest.name,
             description = createAccountRequest.description,
-            tags = createAccountRequest.tags
+            tags = createAccountRequest.tags,
         ).also {
             bankAccountRepository.save(it);
         }

@@ -1,4 +1,4 @@
-package me.emkt.cashflowservice
+package org.cyclic.cashflowservice
 
 import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
@@ -47,7 +47,17 @@ data class Balance(
     val amount: BigDecimal,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now()
-)
+) {
+    fun checkBalance(desiredDebtAmount: BigDecimal) {
+        require(this.amount > desiredDebtAmount) {
+            throw Exception("Insufficient founds")
+        }
+    }
+
+    fun debt(desiredAmount: BigDecimal) {
+        this.amount.apply { minus(desiredAmount) }
+    }
+}
 
 
 enum class EntryType {
