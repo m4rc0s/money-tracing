@@ -23,7 +23,7 @@ class BillsController{
     private lateinit var billRepository: BillRepository
 
     @PostMapping
-    fun create(@RequestBody createBillDTO: CreateBillDTO) {
+    fun create(@RequestBody createBillDTO: CreateBillDTO): Bill {
         val bill = Bill(
             dueDate = createBillDTO.dueDate,
             amount = createBillDTO.amount,
@@ -31,7 +31,7 @@ class BillsController{
             description = createBillDTO.description,
             overdue = createBillDTO.overdue
         )
-        billRepository.save(bill)
+        return billRepository.save(bill)
     }
 
     @GetMapping

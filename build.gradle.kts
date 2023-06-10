@@ -1,13 +1,16 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.7.1-SNAPSHOT"
-	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.6.21"
+	id("org.springframework.boot") version "3.1.0"
+	id("io.spring.dependency-management") version "1.1.0"
+	application
+	kotlin("jvm") version "1.8.21"
 	kotlin("plugin.spring") version "1.6.21"
 
 	id("com.google.cloud.tools.jib") version "3.3.0"
 }
+
+val springCloudVersion by extra { "2021.0.4" }
 
 group = "me.e-mkt"
 version = "0.0.1"
@@ -23,10 +26,22 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
+
+dependencyManagement {
+	imports {
+		mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+	}
+}
+
+application {
+	mainClass.set("org.cyclic.CashFlowServiceApplicationKt")
+}
+
 
 jib {
 	to {

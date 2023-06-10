@@ -35,3 +35,49 @@ out/
 
 ### VS Code ###
 .vscode/
+database
+
+# Miscellaneous
+front-end/*.class
+front-end/*.log
+front-end/*.pyc
+front-end/*.swp
+front-end/.DS_Store
+front-end/.atom/
+front-end/.buildlog/
+front-end/.history
+front-end/.svn/
+front-end/migrate_working_dir/
+
+# IntelliJ related
+front-end/*.iml
+front-end/*.ipr
+front-end/*.iws
+front-end/.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+front-end/**/doc/api/
+front-end/**/ios/Flutter/.last_build_id
+front-end/.dart_tool/
+front-end/.flutter-plugins
+front-end/.flutter-plugins-dependencies
+front-end/.packages
+front-end/.pub-cache/
+front-end/.pub/
+front-end/build/
+
+# Symbolication related
+front-end/app.*.symbols
+
+# Obfuscation related
+front-end/app.*.map.json
+
+# Android Studio will place build artifacts here
+front-end/android/app/debug
+front-end/android/app/profile
+front-end/android/app/release
